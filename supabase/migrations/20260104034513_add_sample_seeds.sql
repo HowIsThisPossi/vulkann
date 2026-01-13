@@ -1,0 +1,161 @@
+/*
+  # Add Sample Seed Data
+
+  1. Sample Seeds
+    - Add 10 verified Minecraft seeds across different biomes and versions
+*/
+
+INSERT INTO seeds (
+  seed_code, title, description, version, biomes, features, 
+  coordinates, difficulty, downloads, rating, reviews_count, verified, edition
+) VALUES
+(
+  '123456789',
+  'Perfect Mountain Village Spawn',
+  'Stunning spawn point with mountain village nearby. Perfect for survival mode with plenty of resources and exploration opportunities. Mountains provide excellent defense and shelter.',
+  '1.20.1',
+  ARRAY['Mountain', 'Village'],
+  ARRAY['Village Spawn', 'Mountains', 'Waterfalls'],
+  'X: 250, Y: 80, Z: -150',
+  'Normal',
+  1250,
+  4.8,
+  42,
+  true,
+  'Java & Bedrock'
+),
+(
+  '987654321',
+  'Ocean Monument Speedrun',
+  'Rare spawn with ocean monument visible from starting point. Contains multiple guardians and treasure. Perfect for advanced players seeking challenge.',
+  '1.20.1',
+  ARRAY['Ocean', 'Deep Ocean'],
+  ARRAY['Ocean Monument', 'Treasure', 'Guardians'],
+  'X: 100, Y: 65, Z: 200',
+  'Hard',
+  890,
+  4.6,
+  35,
+  true,
+  'Java Only'
+),
+(
+  '555777999',
+  'Triple Stronghold Fortress',
+  'Extremely rare seed with three strongholds within close proximity. Great for The End challenge runs. Also features nearby nether fortress.',
+  '1.20',
+  ARRAY['Underground', 'Nether'],
+  ARRAY['Stronghold', 'Nether Fortress', 'Rare Spawn'],
+  'X: 0, Y: 50, Z: 0',
+  'Hard',
+  650,
+  4.9,
+  28,
+  true,
+  'Java & Bedrock'
+),
+(
+  '111222333',
+  'Jungle Paradise',
+  'Massive jungle biome with temple ruins and abundance of wildlife. Perfect for building projects with natural building materials nearby.',
+  '1.19.3',
+  ARRAY['Jungle', 'Rainforest'],
+  ARRAY['Jungle Temple', 'Waterfalls', 'Wildlife'],
+  'X: 500, Y: 70, Z: 300',
+  'Normal',
+  1100,
+  4.7,
+  45,
+  true,
+  'Bedrock Only'
+),
+(
+  '444555666',
+  'Desert Pyramid Oasis',
+  'Beautiful desert with pyramid and natural oasis. Contains multiple diamonds and emeralds in pyramid chest.',
+  '1.20.1',
+  ARRAY['Desert', 'Savanna'],
+  ARRAY['Pyramid', 'Oasis', 'Diamonds'],
+  'X: -400, Y: 65, Z: 150',
+  'Normal',
+  920,
+  4.5,
+  38,
+  true,
+  'Java & Bedrock'
+),
+(
+  '888999111',
+  'Taiga Lumber Paradise',
+  'Vast spruce forest perfect for lumber operations and building. Surrounded by snowy mountains and wolf spawns.',
+  '1.20',
+  ARRAY['Taiga', 'Snow', 'Forest'],
+  ARRAY['Spruce Trees', 'Wolves', 'Snow Mountains'],
+  'X: -800, Y: 75, Z: -500',
+  'Easy',
+  750,
+  4.4,
+  32,
+  true,
+  'Java & Bedrock'
+),
+(
+  '222666444',
+  'Mushroom Island Haven',
+  'Rare mooshroom island biome. Perfect for peaceful building and crop farming. No hostile mobs spawn here.',
+  '1.19',
+  ARRAY['Mushroom Island'],
+  ARRAY['Mooshrooms', 'Safe Haven', 'Red Mushrooms'],
+  'X: 1200, Y: 65, Z: 1000',
+  'Peaceful',
+  580,
+  4.6,
+  24,
+  true,
+  'Java Only'
+),
+(
+  '333777888',
+  'Badlands Rich Ore',
+  'Colorful badlands biome with exposed ore veins everywhere. Great for mining and unique building opportunities.',
+  '1.20.1',
+  ARRAY['Badlands', 'Mesa'],
+  ARRAY['Gold Ore', 'Iron Veins', 'Colorful Terrain'],
+  'X: 2000, Y: 80, Z: -1500',
+  'Normal',
+  650,
+  4.3,
+  29,
+  true,
+  'Java & Bedrock'
+),
+(
+  '999888777',
+  'Floating Islands Survival',
+  'Unique terrain with floating islands above clouds. Challenge mode for experienced builders.',
+  '1.19.3',
+  ARRAY['Custom', 'Sky Islands'],
+  ARRAY['Floating Islands', 'Challenge', 'Sky High Building'],
+  'X: 500, Y: 100, Z: -300',
+  'Hard',
+  420,
+  4.7,
+  18,
+  true,
+  'Java Only'
+),
+(
+  '111555999',
+  'Cozy Village Farmland',
+  'Peaceful plains with multiple villages and flat farmland. Perfect for creative and survival players alike.',
+  '1.20.1',
+  ARRAY['Plains', 'Village'],
+  ARRAY['Multiple Villages', 'Flat Terrain', 'Farmland'],
+  'X: 0, Y: 65, Z: 0',
+  'Easy',
+  1500,
+  4.8,
+  52,
+  true,
+  'Java & Bedrock'
+);
