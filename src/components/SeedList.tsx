@@ -16,11 +16,13 @@ type SortOption = 'popular' | 'recent';
 export function SeedList({ onSeedClick, theme, onThemeToggle }: SeedListProps) {
   const [seeds, setSeeds] = useState<Seed[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('popular');
 
   useEffect(() => {
     setLoading(true);
+    setError(null);
     const orderBy = sortBy === 'popular' ? 'views' : 'created_at';
 
     supabase
@@ -30,8 +32,11 @@ export function SeedList({ onSeedClick, theme, onThemeToggle }: SeedListProps) {
       .then(({ data, error }) => {
         if (error) {
           console.error('Error fetching seeds:', error);
+          setError('Unable to load seeds. Please ensure Supabase credentials are configured in .env');
+          setSeeds([]);
         } else {
           setSeeds(data || []);
+          setError(null);
         }
         setLoading(false);
       });
@@ -144,6 +149,18 @@ export function SeedList({ onSeedClick, theme, onThemeToggle }: SeedListProps) {
                   : 'border-gray-700 border-t-blue-500'
               }`}></div>
               <p className={theme === 'light' ? 'text-gray-600' : 'text-gray-400'}>Loading amazing seeds...</p>
+            </div>
+          </div>
+        ) : error ? (
+          <div className="text-center py-20">
+            <div className={`inline-block mb-4 p-6 rounded-lg ${
+              theme === 'light'
+                ? 'bg-red-50 border-2 border-red-300'
+                : 'bg-red-900 border-2 border-red-700'
+            }`}>
+              <p className={`text-lg font-semibold ${theme === 'light' ? 'text-red-800' : 'text-red-200'}`}>
+                {error}
+              </p>
             </div>
           </div>
         ) : filteredSeeds.length === 0 ? (
