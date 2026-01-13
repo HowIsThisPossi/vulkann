@@ -20,25 +20,22 @@ export function SeedList({ onSeedClick, theme, onThemeToggle }: SeedListProps) {
   const [sortBy, setSortBy] = useState<SortOption>('popular');
 
   useEffect(() => {
-    fetchSeeds();
-  }, [sortBy]);
-
-  const fetchSeeds = async () => {
     setLoading(true);
     const orderBy = sortBy === 'popular' ? 'views' : 'created_at';
 
-    const { data, error } = await supabase
+    supabase
       .from('seeds')
       .select('*')
-      .order(orderBy, { ascending: false });
-
-    if (error) {
-      console.error('Error fetching seeds:', error);
-    } else {
-      setSeeds(data || []);
-    }
-    setLoading(false);
-  };
+      .order(orderBy, { ascending: false })
+      .then(({ data, error }) => {
+        if (error) {
+          console.error('Error fetching seeds:', error);
+        } else {
+          setSeeds(data || []);
+        }
+        setLoading(false);
+      });
+  }, [sortBy]);
 
   const filteredSeeds = seeds.filter(
     (seed) =>

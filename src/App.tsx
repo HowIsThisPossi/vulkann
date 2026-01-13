@@ -27,9 +27,9 @@ function App() {
   };
 
   const handleSeedClick = async (seed: Seed) => {
-    await supabase
+    void supabase
       .from('seeds')
-      .update({ views: seed.views + 1 })
+      .update({ views: seed.views + 1 } as never)
       .eq('id', seed.id);
 
     const updatedSeed = { ...seed, views: seed.views + 1 };
@@ -46,7 +46,13 @@ function App() {
         'best seeds'
       ],
       canonical: `https://vulkanseeds.bolt.host/?seed=${seed.id}`,
-      structured: seedStructuredData(seed),
+      structured: seedStructuredData({
+        id: seed.id,
+        title: seed.title,
+        description: seed.description,
+        seed_value: seed.seed_code,
+        version: seed.version,
+      }),
     });
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
